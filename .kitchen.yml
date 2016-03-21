@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+- name: default
+  run_list: ["recipe[myapp]"]
+  attributes:
+    mysql:
+      server_root_password: "rootpass"
+      server_debian_password: "debpass"
+      server_repl_password: "replpass"
